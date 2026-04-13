@@ -1,0 +1,3 @@
+-- Push subscriptions table already exists from old CRM migration
+-- Schema: id, user_id, endpoint, keys (jsonb with auth + p256dh), expiration_time, created_at
+-- No migration needed — this file documents the existing schema

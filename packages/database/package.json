@@ -1,0 +1,35 @@
+{
+  "name": "@crm/database",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/client.ts",
+    "./rest-client": "./src/rest-client.ts",
+    "./rest-helpers": "./src/rest-helpers.ts",
+    "./rest-db-adapter": "./src/rest-db-adapter.ts",
+    "./automations-queue": "./src/automations-queue.ts",
+    "./schema/*": "./src/schema/*.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "generate": "drizzle-kit generate",
+    "push": "drizzle-kit push",
+    "studio": "drizzle-kit studio",
+    "seed": "tsx src/seed.ts",
+    "test": "echo \"No tests yet\"",
+    "lint": "echo \"No linter yet\""
+  },
+  "dependencies": {
+    "@node-rs/argon2": "^1.7.0",
+    "@supabase/supabase-js": "^2.48.0",
+    "drizzle-orm": "^0.44.2",
+    "postgres": "^3.4.7"
+  },
+  "devDependencies": {
+    "@crm/shared": "*",
+    "drizzle-kit": "^0.31.3",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

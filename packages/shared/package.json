@@ -1,0 +1,25 @@
+{
+  "name": "@crm/shared",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./types/*": "./src/types/*.ts",
+    "./validation/*": "./src/validation/*.ts",
+    "./lib/*": "./src/lib/*.ts",
+    "./lib/accounting": "./src/lib/accounting/index.ts",
+    "./constants/*": "./src/constants/*.ts",
+    "./automations/*": "./src/automations/*.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"No tests yet\"",
+    "lint": "echo \"No linter yet\""
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "zod": "^4.3.6"
+  }
+}

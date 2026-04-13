@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+/* Safe area insets for notch/Dynamic Island */
+:root {
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+}
+
+@theme {
+  /* Brand accent — warm gold */
+  --color-gold: #C9A265;
+  --color-gold-light: #D4B47A;
+  --color-gold-dark: #A08552;
+  --color-gold-glow: rgba(201, 162, 101, 0.15);
+
+  /* Dark theme backgrounds (default) */
+  --color-dark-bg: #0c0c0f;
+  --color-dark-bg-2: #111116;
+  --color-dark-surface: #18181f;
+  --color-dark-raised: #202028;
+  --color-dark-elevated: #282832;
+  --color-dark-border: rgba(255, 255, 255, 0.07);
+  --color-dark-border-accent: rgba(201, 162, 101, 0.3);
+  --color-dark-muted: rgba(255, 255, 255, 0.4);
+  --color-dark-sidebar: #0c0c0f;
+
+  /* Light theme backgrounds */
+  --color-light-bg: #FAF8F5;
+  --color-light-bg-2: #F0EDE8;
+  --color-light-surface: #E8E4DE;
+  --color-light-raised: #DDD9D3;
+  --color-light-elevated: #D0CBC4;
+  --color-light-border: rgba(0, 0, 0, 0.1);
+  --color-light-border-accent: rgba(160, 133, 82, 0.3);
+  --color-light-muted: #71706B;
+  --color-light-text: #2A2A2A;
+  --color-light-sidebar: #2A2A2A;
+
+  /* Light theme accent (slightly darker gold) */
+  --color-light-gold: #A08552;
+  --color-light-gold-light: #B89B72;
+  --color-light-gold-dark: #8C6D3F;
+
+  /* Cream for public pages */
+  --color-cream-bg: #FAF8F5;
+  --color-cream-surface: #FFFFFF;
+
+  /* Genre colours */
+  --color-wedding: #968259;
+  --color-family: #4C5B4F;
+  --color-pets: #7B5242;
+  --color-engagement: #5A5878;
+
+  /* Brand palette */
+  --color-brand-gold: #A08552;
+  --color-brand-sage: #5B7260;
+  --color-brand-terracotta: #A0603A;
+  --color-brand-teal: #3D6E6E;
+
+  /* Semantic */
+  --color-danger: #f87171;
+
+  /* Typography */
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  /* Radii — matches old CRM feel */
+  --radius: 8px;        /* rounded — buttons, inputs */
+  --radius-sm: 6px;     /* rounded-sm — tight UI elements */
+  --radius-md: 8px;     /* rounded-md — nav items */
+  --radius-lg: 12px;    /* rounded-lg — cards, panels */
+  --radius-xl: 16px;    /* rounded-xl — modals */
+
+  /* Shadows for depth hierarchy */
+  --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-modal: 0 24px 64px rgba(0, 0, 0, 0.6);
+  --shadow-panel: 0 24px 64px rgba(0, 0, 0, 0.7);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-toast: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  /* Text color hierarchy (alpha white for warmth) */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.85);
+  --color-text-subtle: rgba(255, 255, 255, 0.6);
+  --color-text-muted: rgba(255, 255, 255, 0.4);
+
+  /* Typography sizes */
+  --size-page-title: 17px;
+}
+
+/* ── Light theme overrides ─────────────────────────────────────────────────
+   When next-themes applies class="light" to <html>, remap the dark-*
+   variables to light palette so all components swap automatically.        */
+:root.light {
+  --color-dark-bg: #FAF8F5;
+  --color-dark-bg-2: #F0EDE8;
+  --color-dark-surface: #E8E4DE;
+  --color-dark-raised: #DDD9D3;
+  --color-dark-elevated: #D0CBC4;
+  --color-dark-border: rgba(0, 0, 0, 0.1);
+  --color-dark-border-accent: rgba(160, 133, 82, 0.3);
+  --color-dark-muted: #71706B;
+  --color-dark-sidebar: #2A2A2A;
+
+  --color-gold: #A08552;
+  --color-gold-light: #B89B72;
+  --color-gold-dark: #8C6D3F;
+  --color-gold-glow: rgba(160, 133, 82, 0.15);
+
+  --color-text-primary: #1c1a22;
+  --color-text-secondary: rgba(28, 26, 34, 0.85);
+  --color-text-subtle: rgba(28, 26, 34, 0.6);
+  --color-text-muted: rgba(28, 26, 34, 0.4);
+
+  --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-modal: 0 24px 64px rgba(0, 0, 0, 0.12);
+  --shadow-panel: 0 24px 64px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-toast: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode text color fixes */
+:root.light body {
+  color: #1c1a22;
+}
+
+:root.light .sidebar-logo {
+  filter: brightness(0);
+}
+
+:root.light ::-webkit-scrollbar-thumb {
+  background: var(--color-light-raised);
+}
+
+:root.light ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-light-border);
+}
+
+/* Custom shadow utilities */
+@layer utilities {
+  /* Bottom padding to clear the mobile bottom nav + home indicator safe area */
+  .pb-safe-nav {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+  .shadow-modal {
+    box-shadow: var(--shadow-modal);
+  }
+  .shadow-panel {
+    box-shadow: var(--shadow-panel);
+  }
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  .shadow-toast {
+    box-shadow: var(--shadow-toast);
+  }
+
+  /* Card interactive hover lift — matches old CRM cards */
+  .card-interactive {
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .card-interactive:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Inline edit pencil reveal on hover */
+  .editable-field .edit-icon {
+    opacity: 0;
+    transition: opacity 150ms ease;
+  }
+  .editable-field:hover .edit-icon {
+    opacity: 0.5;
+  }
+
+  /* Text color utilities with alpha white for warmth */
+  .text-primary {
+    color: var(--color-text-primary);
+  }
+  .text-secondary {
+    color: var(--color-text-secondary);
+  }
+  .text-subtle {
+    color: var(--color-text-subtle);
+  }
+  .text-muted {
+    color: var(--color-text-muted);
+  }
+
+  /* Page title - more restrained than default heading sizes */
+  .page-title {
+    font-size: var(--size-page-title);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+}
+
+/* Safe area body padding for notch/Dynamic Island.
+   Bottom safe area is handled by the fixed bottom-nav component,
+   so we only pad top/left/right on the body. */
+.safe-area-pad {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* Minimum touch target size for mobile */
+@media (pointer: coarse) {
+  button, [role="button"], a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent iOS keyboard zoom — iOS auto-zooms inputs with font-size < 16px */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Scrollbar styling - thin and subtle */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-raised);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dark-border);
+}
+
+/* Focus state utility for subtle border instead of ring */
+@layer utilities {
+  .focus-gold-border {
+    @apply focus:outline-none focus:ring-0 focus:border-dark-border-accent;
+  }
+
+  /* Filter pills - compact and delicate like old CRM */
+  .filter-pill {
+    @apply px-3 py-1 text-[11.5px] rounded-full border border-dark-border
+           bg-transparent text-[var(--color-text-muted)] hover:bg-dark-surface
+           hover:text-[var(--color-text-primary)] transition-colors cursor-pointer;
+  }
+
+  /* Letter-spacing utilities for typography hierarchy */
+  .tracking-labels {
+    letter-spacing: 0.09em;
+  }
+  .tracking-sections {
+    letter-spacing: 0.15em;
+  }
+  .tracking-nav {
+    letter-spacing: 0.18em;
+  }
+}
+
+/* Entrance animations for polish */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(16px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes modal-in {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes toast-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.15s ease-in-out;
+  }
+  .animate-slideUp {
+    animation: slideUp 0.2s ease-in-out;
+  }
+  .animate-slideIn {
+    animation: slideIn 0.2s ease-in-out;
+  }
+  .animate-modal-in {
+    animation: modal-in 0.2s ease;
+  }
+  .animate-toast-in {
+    animation: toast-in 0.2s ease;
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "macalister-crm",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "cf:build": "turbo run cf:build --filter=@crm/app"
+  },
+  "packageManager": "npm@11.9.0",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/bcryptjs": "^2.4.6",
+    "husky": "^9.1.7",
+    "pm2": "^6.0.14",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.81.0",
+    "@aws-sdk/s3-request-presigner": "^3.1024.0",
+    "@hookform/resolvers": "^5.2.2",
+    "@react-navigation/bottom-tabs": "^7.15.9",
+    "@supabase/ssr": "^0.10.0",
+    "@supabase/supabase-js": "^2.101.0",
+    "bcryptjs": "^3.0.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dotenv": "^17.4.1",
+    "pg": "^8.20.0",
+    "react-hook-form": "^7.72.1",
+    "tailwind-merge": "^3.5.0",
+    "uuid": "^13.0.0",
+    "web-push": "^3.6.7",
+    "zod": "^4.3.6"
+  }
+}
