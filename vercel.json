@@ -1,5 +1,6 @@
 {
   "buildCommand": "npm run build --workspace=@crm/darkroom",
   "outputDirectory": "apps/darkroom/.next",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "installCommand": "npm install"
 }
